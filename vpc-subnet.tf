@@ -47,18 +47,12 @@ resource "aws_route_table" "route_public_1" {
     tags = {
       Name = "route_public_1"
     }
-    route {
-      gateway_id = aws_internet_gateway.IGW1.id    
-      }
 }
 resource "aws_route_table" "route_public_2" {
     vpc_id = aws_vpc.vpc1.id 
     tags = {
       Name = "route_public_2"
     }
-    route {
-      gateway_id = aws_internet_gateway.IGW1.id    
-      }
 }
 resource "aws_route_table" "route_private_1" {
     vpc_id = aws_vpc.vpc1.id 
@@ -92,6 +86,16 @@ resource "aws_route" "rt1" {
   route_table_id = aws_route_table.route_public_1.id
   gateway_id = aws_internet_gateway.IGW1.id
   destination_cidr_block = ["0.0.0.0/0"]
+}
+resource "aws_route" "rt1" {
+  route_table_id = aws_route_table.route_public_1.id
+  destination_cidr_block = ["0.0.0.0/0"]
+  gateway_id = aws_internet_gateway.IGW1.id
+}
+resource "aws_route" "rt2" {
+  route_table_id = aws_route_table.route_public_2.id
+  destination_cidr_block = ["0.0.0.0/0"]
+  gateway_id = aws_internet_gateway.IGW1.id
 }
 
 

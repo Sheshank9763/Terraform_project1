@@ -4,7 +4,7 @@ resource "aws_instance" "public-ec2" {
     tags = {
       Name = "public-ec2"
     }
-    key_name = "sheshi.pem"
+    key_name = "sheshi"
     instance_type = "t2.micro"
     associate_public_ip_address = true
     security_groups = [ aws_security_group.sg1.id ]

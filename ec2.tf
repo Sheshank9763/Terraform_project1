@@ -15,7 +15,7 @@ resource "aws_instance" "private-ec2" {
     tags = {
       Name = "private-ec2"
     }
-    key_name = "sheshi.pem"
+    key_name = "sheshi"
     instance_type = "t2.micro"
     security_groups = [aws_security_group.sg1.id]
 }

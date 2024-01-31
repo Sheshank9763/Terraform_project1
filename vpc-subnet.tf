@@ -89,12 +89,12 @@ resource "aws_route" "rt1" {
 }
 resource "aws_route" "rt1" {
   route_table_id = aws_route_table.route_public_1.id
-  destination_cidr_block = ["0.0.0.0/0"]
+  destination_cidr_block = "0.0.0.0/0"
   gateway_id = aws_internet_gateway.IGW1.id
 }
 resource "aws_route" "rt2" {
   route_table_id = aws_route_table.route_public_2.id
-  destination_cidr_block = ["0.0.0.0/0"]
+  destination_cidr_block = "0.0.0.0/0"
   gateway_id = aws_internet_gateway.IGW1.id
 }
 
